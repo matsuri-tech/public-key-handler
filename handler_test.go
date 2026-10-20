@@ -62,7 +62,7 @@ func TestJWKHandler_getECDSAPublicKeyFromJWK(t *testing.T) {
 		"79687070844812207596098443007393002297593322043514267675772315167913943071765",
 		0,
 	)
-	if got := key.Key.X; got.Cmp(&wantX) != 0 {
+	if got := key.Key.X; got.Cmp(&wantX) != 0 { //nolint:staticcheck // SA1019
 		t.Errorf("want %v, got %v", wantX, got)
 	}
 
@@ -71,7 +71,7 @@ func TestJWKHandler_getECDSAPublicKeyFromJWK(t *testing.T) {
 		"108337181928287654206268663555247825023969395620689137485556592744914024813267",
 		0,
 	)
-	if got := key.Key.Y; got.Cmp(&wantY) != 0 {
+	if got := key.Key.Y; got.Cmp(&wantY) != 0 { //nolint:staticcheck // SA1019
 		t.Errorf("want %v, got %v", wantY, got)
 	}
 }

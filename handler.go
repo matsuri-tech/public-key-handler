@@ -146,8 +146,8 @@ func (handler PublicKeyHandler) getECDSAPublicKeyFromJWK(jwk ECDSAJSONWebKey) (E
 		Id: jwk.Kid,
 		Key: ecdsa.PublicKey{
 			Curve: curve,
-			X:     &keyX,
-			Y:     &keyY,
+			X:     &keyX, //nolint:staticcheck // SA1019: kept for compatibility; migrate to ecdsa.ParseUncompressedPublicKey separately
+			Y:     &keyY, //nolint:staticcheck // SA1019: see above
 		},
 	}, nil
 }
